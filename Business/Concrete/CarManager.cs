@@ -33,7 +33,7 @@ namespace Business.Concrete
                 }
                 else
                 {
-                    Console.WriteLine("Car not added ve dailyprice");
+                    Console.WriteLine("Car not added");
 
                 }
             
