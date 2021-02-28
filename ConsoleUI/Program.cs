@@ -18,7 +18,7 @@ namespace ConsoleUI
 
             //brandManager.Add(new Brand { BrandId=1, BrandName = "BMW" });
             //colorManager.Add(new Color { ColorId= 1, ColorName = "beyaz" });
-            carManager.Add(new Car { CarId=5, BrandId=1, ColorId=4, CarDescription="benzin", DailyPrice=650, ModelYear=2021});
+            carManager.Add(new Car {BrandId=2, ColorId=4, CarDescription="benzin", DailyPrice=850, ModelYear=2021});
             
         }
     }

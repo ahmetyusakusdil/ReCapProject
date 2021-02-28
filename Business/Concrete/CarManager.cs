@@ -23,64 +23,29 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-           
-            foreach (var _car in _carDal.GetAll())
-            {
-                if (_car.CarId != car.CarId)
+            var d = _brandDal.Get(c => c.BrandId == car.BrandId);
+            
+                if (d.BrandName.Length > 2 && car.DailyPrice > 0)
                 {
-                    foreach (var brand in _brandDal.GetAll())
-                    {
-                        if (brand.BrandId == car.BrandId)
-                        {
-                            if (brand.BrandName.Length > 2 && car.DailyPrice > 0)
-                            {
 
-                                _carDal.Add(car);
-                                Console.WriteLine("Car added");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Car not added ve dailyprice");
-                                goto baslangic;
-
-                            }
-
-                        }
-
-                        else
-                        {
-                            goto baslangic;
-                        }
-
-
-                    }
-
-
+                    _carDal.Add(car);
+                    Console.WriteLine("Car added");
                 }
-
                 else
                 {
-                    Console.WriteLine("ID Db de mevcut");
+                    Console.WriteLine("Car not added ve dailyprice");
+
                 }
+            
                 
-                goto baslangic;
 
-            }
-
-
-
-
-        baslangic:;
-
+            
+                 
         }
 
-
-        
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
         }
-
-
     }
 }
