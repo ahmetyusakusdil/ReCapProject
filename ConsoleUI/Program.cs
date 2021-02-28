@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
@@ -9,30 +10,16 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new InMemoryCarDal());
-            BrandManager brandManager = new BrandManager(new InMemoryBrandDal());
-            ColorManager colorManager = new ColorManager(new InMemoryColorDal());
+            CarManager carManager = new CarManager(new EfCarDal(), new EfBrandDal());
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            ColorManager colorManager = new ColorManager(new EfColorDal());
 
-            foreach (var car in carManager.GetAll())
-            {
-                foreach (var brand in brandManager.GetAll())
-                {
-                    foreach (var color in colorManager.GetAll())
-                    {
-                        if ((car.BrandId == brand.BrandId) && (color.ColorId==car.ColorId))
-                        {
-                            Console.WriteLine("Car Brand :" + brand.BrandName);
-                            Console.WriteLine("Car Color :" + color.ColorName);
-                            Console.WriteLine("Car DailyPrice :" + car.DailyPrice);
-                            Console.WriteLine("Car Mode Year :" + car.ModelYear);
-                            Console.WriteLine("Car Description :" + car.Description);
-                        }
-                    }
-                    
-                }
-                
-            }
+          
 
+            //brandManager.Add(new Brand { BrandId=1, BrandName = "BMW" });
+            //colorManager.Add(new Color { ColorId= 1, ColorName = "beyaz" });
+            carManager.Add(new Car { CarId=5, BrandId=1, ColorId=4, CarDescription="benzin", DailyPrice=650, ModelYear=2021});
+            
         }
     }
 }
