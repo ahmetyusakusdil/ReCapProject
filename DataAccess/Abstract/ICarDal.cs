@@ -1,5 +1,7 @@
-﻿using Entities;
+﻿using Core.DataAccess;
+using Entities;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -12,5 +14,7 @@ namespace DataAccess.Abstract
         List<Car> GetCarByBrandId(Expression<Func<Car, bool>> filter);
 
         List<Car> GetCarByColorId(Expression<Func<Car, bool>> filter);
+
+        List<CarDetailDto> GetCarDetails();
     }
 }
