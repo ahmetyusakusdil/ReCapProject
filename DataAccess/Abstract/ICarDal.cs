@@ -11,10 +11,6 @@ namespace DataAccess.Abstract
 {
    public interface ICarDal : IEntityRepository<Car>
     {
-        List<Car> GetCarByBrandId(Expression<Func<Car, bool>> filter);
-
-        List<Car> GetCarByColorId(Expression<Func<Car, bool>> filter);
-
-        List<CarDetailDto> GetCarDetails();
+      List<CarDetailDto> GetCarDetails();
     }
 }

@@ -10,19 +10,23 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //CarManager carManager = new CarManager(new EfCarDal());
-
-            //foreach (var car in carManager.GetCarDetails())
-            //{
-            //    Console.WriteLine("Car Brand : " + car.BrandName + "");
-            //}
+            
+           CarManager carManager = new CarManager(new EfCarDal());
 
 
-            //ModelAdd();
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine("Car Model : " + car.ModelName);
+                Console.WriteLine("Car Brand : " + car.BrandName);
+                Console.WriteLine("Car Color : " + car.ColorName);
+                Console.WriteLine("Car Price : " + car.DailyPrice);
+                Console.WriteLine("Car Model Year : " + car.ModelYear);
+                Console.WriteLine("Car Description : " + car.CarDescription);
+            }
 
-            CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Add(new Car { BrandId = 1, ColorId = 1, DailyPrice = 1000, ModelId=1, CarDescription="Benzinli", ModelYear=2020});
-            Console.WriteLine("Car added");
+            carManager.Delete(new Car { CarId = 1 });
+
+            
         }
 
         private static void ModelAdd()
