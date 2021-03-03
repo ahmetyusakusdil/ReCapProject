@@ -10,11 +10,46 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            
-           CarManager carManager = new CarManager(new EfCarDal());
+            RentalCar();
+
+        }
+
+        private static void RentalCar()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.Add(new Rental { CarId = 1, CustomerId = 1, RentDate = DateTime.Now, ReturnDate = new DateTime(2021, 03, 28) });
+            Console.WriteLine(result.Message);
+        }
+
+        private static void CarAdd()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.Add(new Car { BrandId = 1, ColorId = 1, ModelId = 1, ModelYear = 2018, DailyPrice = 1000, CarDescription = "Dizel" }).Message;
+
+            Console.WriteLine(result);
+        }
+
+        private static void CustomerAdd()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+
+            var result = customerManager.Add(new Customer { UserId = 1, CompanyName = "ABC Company" }).Message;
+            Console.WriteLine(result);
+        }
+
+        private static void UserAdd()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            var result = userManager.Add(new User { FirstName = "Ali", LastName = "Kuşdil", Email = "ali.kusdil@gmail.com", Password = "789" }).Message;
+            Console.WriteLine(result);
+        }
+
+        private static CarManager GetCarDetailsfull()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
 
 
-            foreach (var car in carManager.GetCarDetails())
+            foreach (var car in carManager.GetCarDetails().Data)
             {
                 Console.WriteLine("Car Model : " + car.ModelName);
                 Console.WriteLine("Car Brand : " + car.BrandName);
@@ -24,9 +59,7 @@ namespace ConsoleUI
                 Console.WriteLine("Car Description : " + car.CarDescription);
             }
 
-            carManager.Delete(new Car { CarId = 1 });
-
-            
+            return carManager;
         }
 
         private static void ModelAdd()
