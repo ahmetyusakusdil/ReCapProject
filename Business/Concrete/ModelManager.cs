@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -15,14 +17,15 @@ namespace Business.Concrete
         {
             _modelDal = modelDal;
         }
-        public void Add(Model model)
+        public IResult Add(Model model)
         {
             _modelDal.Add(model);
+            return new SuccessResult(Message.ModelAdded);
         }
 
-        public List<Model> GetAll()
+        public IDataResult<List<Model>> GetAll()
         {
-            return _modelDal.GetAll();
+            return new SuccessDataResult<List<Model>>( _modelDal.GetAll());
         }
     }
 }
