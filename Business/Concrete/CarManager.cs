@@ -47,12 +47,12 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<Car>(Message.CarNotListed);
             }
-           return new SuccessDataResult<Car>( _carDal.Get(c => c.CarId == Id));
+           return new SuccessDataResult<Car>( _carDal.Get(c => c.CarId == Id),Message.CarListed);
         }
 
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>( _carDal.GetAll());
+            return new SuccessDataResult<List<Car>>( _carDal.GetAll(),Message.CarListed);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()

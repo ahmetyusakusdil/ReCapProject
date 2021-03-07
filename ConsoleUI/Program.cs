@@ -10,8 +10,24 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            RentalCar();
+            ColorAdd();
+            BrandAdd();
+            ModelAdd();
+            CarAdd();
+            
 
+        }
+
+        private static void ColorAdd()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            colorManager.Add(new Color { ColorName = "Mavi" });
+        }
+
+        private static void BrandAdd()
+        {
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            brandManager.Add(new Brand { BrandName = "BMW" });
         }
 
         private static void RentalCar()
