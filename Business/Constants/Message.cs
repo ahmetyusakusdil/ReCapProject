@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -60,7 +62,21 @@ namespace Business.Constants
         public static string ModelNotUpdated = "Model Not Updated";
         public static string UserNotUpdated = "user Not updated";
         public static string RentalNotUpdated = "rental Not Updated";
-
-
+        public static string AuthorizationDenied = "Yetkiniz yok.";
+        public static string UserRegistered="Kullanıcı Kayıt Oldu.";
+        public static string UserNotFound="Kullanıcı Bulunamadı.";
+        public static string PasswordError="Şifre Hatalı.";
+        public static string SuccessfulLogin="Giriş Başarılı.";
+        public static string UserAlreadyExists="Kullanıcı Mevcut.";
+        public static string AccessTokenCreated="Token oluşturuldu.";
+        public static string CarImageAdded="Araba resmi eklendi.";
+        public static string CarImageNotFound="Araba resmi bulunamadı.";
+        public static string CarNotFound="Araba Bulunamadı";
+        public static string CarImageEnough="Araba resimleri yeterli.";
+        public static string CarImageUpdated="Araba resmi güncellendi";
+        public static string IdError="Id Hatası.";
+        public static string CarImageDeleted="Araba resmi silindi.";
+        public static string CarImageNotDeleted="Araba resmi silinemedi.";
+       
     }
 }
