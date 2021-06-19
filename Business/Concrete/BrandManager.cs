@@ -27,9 +27,19 @@ namespace Business.Concrete
            return new SuccessResult(Message.BrandAdded);
         }
 
+        public IResult Delete(Brand brand)
+        {
+            throw new NotImplementedException();
+        }
+
         public IDataResult<List<Brand>> GetAll()
         {
             return new SuccessDataResult<List<Brand>>( _brandDal.GetAll(),Message.BrandListed);
+        }
+
+        public IResult Update(Brand brand)
+        {
+            throw new NotImplementedException();
         }
     }
 }
