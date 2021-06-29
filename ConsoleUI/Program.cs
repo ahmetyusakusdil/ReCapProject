@@ -11,11 +11,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            ColorAdd();
-            BrandAdd();
-            ModelAdd();
-            CarAdd();
-            
+            //ColorAdd();
+            //BrandAdd();
+            //ModelAdd();
+            //CarAdd();
+            RentalCar();
+            //CustomerAdd();
 
         }
 
@@ -34,7 +35,7 @@ namespace ConsoleUI
         private static void RentalCar()
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            var result = rentalManager.Add(new Rental { CarId = 1, CustomerId = 1, RentDate = DateTime.Now, ReturnDate = new DateTime(2021, 03, 28) });
+            var result = rentalManager.Add(new Rental { CarId = 1, CustomerId = 1, UserId=2, BrandId=2, RentDate = DateTime.Now, ReturnDate = new DateTime(2021, 10, 28) });
             Console.WriteLine(result.Message);
         }
 
@@ -50,11 +51,11 @@ namespace ConsoleUI
         {
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
 
-            var result = customerManager.Add(new Customer { UserId = 1, CompanyName = "ABC Company" }).Message;
+            var result = customerManager.Add(new Customer { UserId = 1, CompanyName = "Doğuş Oto" }).Message;
             Console.WriteLine(result);
         }
 
-       
+
 
         private static CarManager GetCarDetailsfull()
         {
